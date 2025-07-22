@@ -1,81 +1,98 @@
-body {
-  font-family: Arial, sans-serif;
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background: #f4f9f4;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f6fbf7;
   color: #333;
 }
 
-header.hero {
-  background-color: #d9f0d9;
+.header {
+  background: #d3f2d3;
   text-align: center;
-  padding: 50px 20px;
+  padding: 2rem 1rem;
 }
 
-.cta-buttons a {
-  margin: 10px;
-  padding: 10px 20px;
-  background-color: #4CAF50;
+.header h1 {
+  margin-bottom: 0.5rem;
+}
+
+.buttons {
+  margin-top: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #4CAF50;
   color: white;
+  border-radius: 4px;
   text-decoration: none;
-  border-radius: 5px;
 }
 
-section {
-  padding: 40px 20px;
+.about, .packages, .contact {
   text-align: center;
+  padding: 2rem 1rem;
 }
 
-.card-container {
+.cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .card {
   position: relative;
   background: white;
   border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  width: 280px;
-  transition: all 0.4s ease-in-out;
+  width: 300px;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
   overflow: hidden;
-  z-index: 1;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.dirt-overlay {
+.card .dirt-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("https://i.imgur.com/mFQxvNZ.png");
+  background: url('confirmed-dirt-overlay.png');
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   opacity: 0.9;
-  mix-blend-mode: multiply;
-  transition: all 0.6s ease-in-out;
-  z-index: 2;
-  pointer-events: none;
+  transition: all 1s ease-in-out;
+  z-index: 1;
 }
 
 .card:hover .dirt-overlay {
+  transform: translateY(-100%);
   opacity: 0;
-  transform: translateX(120%) rotate(10deg);
 }
 
+.card h3, .card p, .card ul {
+  position: relative;
+  z-index: 2;
+}
 
-footer {
+.card ul {
+  list-style: disc;
+  padding-left: 1.2rem;
+  text-align: left;
+}
+
+.contact a {
+  color: #007BFF;
+}
+
+.footer {
   text-align: center;
-  padding: 20px;
-  background: #eee;
-  font-size: 0.9em;
+  background: #f1f1f1;
+  padding: 1rem;
+  margin-top: 3rem;
 }
