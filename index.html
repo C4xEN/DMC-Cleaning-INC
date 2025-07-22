@@ -86,11 +86,20 @@
   <header>
     <h1>DMC Cleaning Inc.</h1>
     <p>Professional, Reliable, Affordable Cleaning Services</p>
-    <div class="btn-group">
-      <button onclick="window.location.href='tel:8134241670'">Call Now</button>
-      <button onclick="window.location.href='sms:8134241670'">Text Us</button>
-      <button onclick="document.getElementById('packages').scrollIntoView({ behavior: 'smooth' })">View Packages</button>
-    </div>
+    <div class="flex justify-center gap-4 mt-4 flex-wrap">
+  <button onclick="window.location.href='tel:8134241670'"
+    class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+    Call Now
+  </button>
+  <button onclick="window.location.href='sms:8134241670'"
+    class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+    Text Us
+  </button>
+  <button onclick="document.getElementById('packages').scrollIntoView({ behavior: 'smooth' })"
+    class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+    View Packages
+  </button>
+</div>
   </header>
 
   <div class="section">
