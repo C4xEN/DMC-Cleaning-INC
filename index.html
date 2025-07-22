@@ -6,6 +6,14 @@
   <title>DMC Cleaning Inc.</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fadeIn 1.2s ease-out forwards;
+  }
+</style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -82,6 +90,11 @@
   </style>
 </head>
 <body>
+  <div class="flex justify-center py-6 animate-fade-in">
+  <svg xmlns="http://www.w3.org/2000/svg" width="100" height="50" fill="none" viewBox="0 0 24 24" stroke="green" stroke-width="1.5">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M21 12s-2-4-9-4-9 4-9 4 2 4 9 4 9-4 9-4z" />
+  </svg>
+</div>
 
   <header>
     <h1>DMC Cleaning Inc.</h1>
@@ -108,16 +121,16 @@
   </div>
 
   <div class="section" id="packages">
-    <h2>Flat-Rate Packages</h2>
-    <div class="cards">
-      <div class="flex flex-wrap justify-center gap-8 mt-8 px-4">
-        <h3>Standard Refresh</h3>
-        <p class="text-green-700 font-bold mb-2">$160 – 4 Hours</p>
-        <ul class="text-sm text-gray-700 list-disc pl-5 space-y-1 text-left">
-          <li>Kitchen & bathroom wipe-downs</li>
-          <li>Dusting, vacuuming, trash removal</li>
-        </ul>
-      </div>
+    <h2 class="text-2xl font-bold mb-6">Flat-Rate Packages</h2>
+    <div class="flex flex-wrap justify-center gap-8 mt-8 px-4">
+      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 w-80">
+  <h3 class="text-xl font-semibold mb-2">Standard Refresh</h3>
+  <p class="text-green-700 font-bold mb-2">$160 – 4 Hours</p>
+  <ul class="text-sm text-gray-700 list-disc pl-5 space-y-1 text-left">
+    <li>Kitchen & bathroom wipe-downs</li>
+    <li>Dusting, vacuuming, trash removal</li>
+  </ul>
+</div>
       <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 w-80">
         <h3 class="text-xl font-semibold mb-2">Deep Clean</h3>
         <p class="text-green-700 font-bold mb-2">$280 – 7 Hours</p>
@@ -136,6 +149,15 @@
       </div>
     </div>
   </div>
+  <!-- ✅ Add-On Services Section -->
+<div class="section text-center">
+  <h2 class="text-2xl font-bold mb-4">Add-On Services</h2>
+  <div class="flex justify-center flex-wrap gap-6 text-lg">
+    <div>🧺 Laundry</div>
+    <div>🍽️ Dishwashing</div>
+    <div>🌿 Light Yard Work</div>
+  </div>
+</div>
 
   <div class="section">
     <h2>Get in Touch</h2>
@@ -146,6 +168,14 @@
   <footer>
     &copy; 2025 DMC Cleaning Inc. | Designed by Optima Grata
   </footer>
+<div class="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
+  <a href="tel:8134241670" class="bg-green-600 hover:bg-green-700 text-white p-3 rounded-full shadow-lg transition-transform transform hover:scale-110">
+    📞
+  </a>
+  <a href="sms:8134241670" class="bg-green-600 hover:bg-green-700 text-white p-3 rounded-full shadow-lg transition-transform transform hover:scale-110">
+    💬
+  </a>
+</div>
 
 </body>
 </html>
