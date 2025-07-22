@@ -4,16 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DMC Cleaning Inc.</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  
+   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .animate-fade-in {
-    animation: fadeIn 1.2s ease-out forwards;
-  }
-</style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -29,108 +23,60 @@
       100% {background-position: 0% 50%;}
     }
 
-    header {
-      text-align: center;
-      padding: 3rem 1rem 1rem;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    h1 {
-      margin: 0;
+    .animate-fade-in {
+      animation: fadeIn 1.2s ease-out forwards;
     }
-
-    .btn-group button {
-      background: #4CAF50;
-      border: none;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      margin: 0.5rem;
-      cursor: pointer;
-      font-size: 1rem;
-      border-radius: 5px;
-    }
-
-    .section {
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      padding: 2rem 0;
-    }
-
-    .card {
-      background: white;
-      padding: 1.5rem;
-      width: 300px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      border-radius: 10px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      padding: 2rem 1rem;
-      background: #f4f4f4;
-    }
-
-    a {
-      color: #1a237e;
-    }
-
   </style>
 </head>
 <body>
-  <div class="flex justify-center py-6 animate-fade-in">
-  <svg xmlns="http://www.w3.org/2000/svg" width="100" height="50" fill="none" viewBox="0 0 24 24" stroke="green" stroke-width="1.5">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M21 12s-2-4-9-4-9 4-9 4 2 4 9 4 9-4 9-4z" />
-  </svg>
-</div>
 
-  <header>
-    <h1>DMC Cleaning Inc.</h1>
-    <div class="flex justify-center flex-wrap gap-4 mt-6">
-  <button onclick="window.location.href='tel:8134241670'"
-    class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-5 rounded-xl shadow-lg hover:scale-105 transition duration-300">
-    📞 Call Now
-  </button>
-  <button onclick="window.location.href='sms:8134241670'"
-    class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-5 rounded-xl shadow-lg hover:scale-105 transition duration-300">
-    💬 Text Us
-  </button>
-  <button onclick="document.getElementById('packages').scrollIntoView({ behavior: 'smooth' })"
-    class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-5 rounded-xl shadow-lg hover:scale-105 transition duration-300">
-    🧼 View Packages
-  </button>
-</div>
-
-  </header>
-
-  <div class="section">
-    <h2>About Us</h2>
-    <p>We provide top-quality residential cleaning with flat-rate packages and add-ons to meet your needs.</p>
+   <div class="flex justify-center py-6 animate-fade-in">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="50" fill="none" viewBox="0 0 24 24" stroke="green" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21 12s-2-4-9-4-9 4-9 4 2 4 9 4 9-4 9-4z" />
+    </svg>
   </div>
 
-  <div class="section" id="packages">
+    <header class="text-center px-4">
+    <h1 class="text-3xl font-bold mb-2">DMC Cleaning Inc.</h1>
+    <p class="mb-4">Professional, Reliable, Affordable Cleaning Services</p>
+    <div class="flex justify-center flex-wrap gap-4 mt-4">
+      <button onclick="window.location.href='tel:8134241670'"
+        class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-5 rounded-xl shadow-lg hover:scale-105 transition duration-300">
+        📞 Call Now
+      </button>
+      <button onclick="window.location.href='sms:8134241670'"
+        class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-5 rounded-xl shadow-lg hover:scale-105 transition duration-300">
+        💬 Text Us
+      </button>
+      <button onclick="document.getElementById('packages').scrollIntoView({ behavior: 'smooth' })"
+        class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-5 rounded-xl shadow-lg hover:scale-105 transition duration-300">
+        🧼 View Packages
+      </button>
+    </div>
+  </header>
+
+    <div class="section text-center mt-10">
+    <h2 class="text-xl font-bold mb-2">About Us</h2>
+    <p class="text-gray-800">We provide top-quality residential cleaning with flat-rate packages and add-ons to meet your needs.</p>
+  </div>
+
+    <div class="section" id="packages">
     <h2 class="text-2xl font-bold mb-6">Flat-Rate Packages</h2>
     <div class="flex flex-wrap justify-center gap-8 mt-8 px-4">
       <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 w-80">
-  <h3 class="text-xl font-semibold mb-2">Standard Refresh</h3>
-  <p class="text-green-700 font-bold mb-2">$160 – 4 Hours</p>
-  <ul class="text-sm text-gray-700 list-disc pl-5 space-y-1 text-left">
-    <li>Kitchen & bathroom wipe-downs</li>
-    <li>Dusting, vacuuming, trash removal</li>
-  </ul>
-</div>
+        <h3 class="text-xl font-semibold mb-2">Standard Refresh</h3>
+        <p class="text-green-700 font-bold mb-2">$160 – 4 Hours</p>
+        <ul class="text-sm text-gray-700 list-disc pl-5 space-y-1 text-left">
+          <li>Kitchen & bathroom wipe-downs</li>
+          <li>Dusting, vacuuming, trash removal</li>
+        </ul>
+      </div>
+
       <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 w-80">
         <h3 class="text-xl font-semibold mb-2">Deep Clean</h3>
         <p class="text-green-700 font-bold mb-2">$280 – 7 Hours</p>
@@ -139,6 +85,7 @@
           <li>Appliances, baseboards, blinds</li>
         </ul>
       </div>
+
       <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 w-80">
         <h3 class="text-xl font-semibold mb-2">Move In/Out</h3>
         <p class="text-green-700 font-bold mb-2">$320 – 8 Hours</p>
@@ -149,33 +96,34 @@
       </div>
     </div>
   </div>
-  <!-- ✅ Add-On Services Section -->
-<div class="section text-center">
-  <h2 class="text-2xl font-bold mb-4">Add-On Services</h2>
-  <div class="flex justify-center flex-wrap gap-6 text-lg">
-    <div>🧺 Laundry</div>
-    <div>🍽️ Dishwashing</div>
-    <div>🌿 Light Yard Work</div>
-  </div>
-</div>
 
-  <div class="section">
-    <h2>Get in Touch</h2>
+    <div class="section text-center">
+    <h2 class="text-2xl font-bold mb-4">Add-On Services</h2>
+    <div class="flex justify-center flex-wrap gap-6 text-lg">
+      <div>🧺 Laundry</div>
+      <div>🍽️ Dishwashing</div>
+      <div>🌿 Light Yard Work</div>
+    </div>
+  </div>
+
+    <div class="section text-center">
+    <h2 class="text-xl font-bold mb-2">Get in Touch</h2>
     <p>Call or text us at <strong>(813) 424-1670</strong></p>
-    <p>Email: <a href="mailto:dmclark0323@icloud.com">dmclark0323@icloud.com</a></p>
+    <p>Email: <a href="mailto:dmclark0323@icloud.com" class="text-blue-800">dmclark0323@icloud.com</a></p>
   </div>
 
-  <footer>
+    <footer class="text-center text-sm py-6 bg-gray-100">
     &copy; 2025 DMC Cleaning Inc. | Designed by Optima Grata
   </footer>
-<div class="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
-  <a href="tel:8134241670" class="bg-green-600 hover:bg-green-700 text-white p-3 rounded-full shadow-lg transition-transform transform hover:scale-110">
-    📞
-  </a>
-  <a href="sms:8134241670" class="bg-green-600 hover:bg-green-700 text-white p-3 rounded-full shadow-lg transition-transform transform hover:scale-110">
-    💬
-  </a>
-</div>
+
+    <div class="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
+    <a href="tel:8134241670" class="bg-green-600 hover:bg-green-700 text-white p-3 rounded-full shadow-lg transition-transform transform hover:scale-110">
+      📞
+    </a>
+    <a href="sms:8134241670" class="bg-green-600 hover:bg-green-700 text-white p-3 rounded-full shadow-lg transition-transform transform hover:scale-110">
+      💬
+    </a>
+  </div>
 
 </body>
 </html>
