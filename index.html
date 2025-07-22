@@ -4,10 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>DMC Cleaning Inc.</title>
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header class="hero">
+    <header class="hero" data-aos="fade-down">
         <h1>DMC Cleaning Inc.</h1>
         <p>Professional, Reliable, Affordable Cleaning Services</p>
         <div class="cta-buttons">
@@ -17,42 +20,45 @@
         </div>
     </header>
 
-    <section id="about">
+    <section id="about" data-aos="fade-right">
         <h2>About Us</h2>
         <p>We provide top-quality residential cleaning with flat-rate packages and add-ons to meet your needs.</p>
     </section>
 
     <section id="pricing">
-        <h2>Flat-Rate Packages</h2>
+        <h2 data-aos="fade-up">Flat-Rate Packages</h2>
         <div class="card-container">
-            <div class="card">
+            <div class="card dusty" data-aos="fade-up" data-aos-delay="0">
                 <h3>Standard Refresh</h3>
                 <p>$160 – 4 Hours</p>
                 <ul>
                     <li>Kitchen & bathroom wipe-downs</li>
                     <li>Dusting, vacuuming, trash removal</li>
                 </ul>
+                <div class="dust-layer"></div>
             </div>
-            <div class="card">
+            <div class="card dusty" data-aos="fade-up" data-aos-delay="100">
                 <h3>Deep Clean</h3>
                 <p>$280 – 7 Hours</p>
                 <ul>
                     <li>Includes Standard Refresh</li>
                     <li>Appliances, baseboards, blinds</li>
                 </ul>
+                <div class="dust-layer"></div>
             </div>
-            <div class="card">
+            <div class="card dusty" data-aos="fade-up" data-aos-delay="200">
                 <h3>Move In/Out</h3>
                 <p>$320 – 8 Hours</p>
                 <ul>
                     <li>Includes Deep Clean</li>
                     <li>Cabinets, drawers, final polish</li>
                 </ul>
+                <div class="dust-layer"></div>
             </div>
         </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" data-aos="fade-left">
         <h2>Get in Touch</h2>
         <p>Call or text us at <strong>(813) 424-1670</strong></p>
         <p>Email: <a href="mailto:dmclark0323@icloud.com">dmclark0323@icloud.com</a></p>
@@ -61,5 +67,11 @@
     <footer>
         <p>© 2025 DMC Cleaning Inc. | Designed by Optima Grata</p>
     </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
