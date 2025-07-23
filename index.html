@@ -11,7 +11,7 @@
       margin: 0;
       font-family: Arial, sans-serif;
       overflow-x: hidden;
-      background-color: #002813;
+      background-color: #0a1f14;
       color: #fff;
       position: relative;
     }
@@ -28,21 +28,21 @@
 
     .vine {
       stroke: #0a3d1a;
-      stroke-width: 2.5;
+      stroke-width: 4;
       fill: none;
-      stroke-dasharray: 1200;
-      stroke-dashoffset: 1200;
-      animation: growVine 6s ease forwards, pulseVine 2s ease-in-out 6s infinite;
+      stroke-dasharray: 1400;
+      stroke-dashoffset: 1400;
+      animation: growVine 4s ease forwards, pulse 3s ease-in-out infinite 4s;
     }
 
     .leaf {
       fill: #1b5e20;
       transform-origin: center;
-      animation: growLeaf 1s ease forwards;
+      animation: growLeaf 0.8s ease forwards;
     }
 
     .leaf-group {
-      animation-delay: 3s;
+      animation-delay: 2s;
       animation-fill-mode: forwards;
     }
 
@@ -63,20 +63,15 @@
       }
     }
 
-    @keyframes pulseVine {
-      0%, 100% {
-        opacity: 1;
-        stroke-width: 2.5;
-      }
-      50% {
-        opacity: 0.5;
-        stroke-width: 3.2;
-      }
+    @keyframes pulse {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.01); }
+      100% { opacity: 1; transform: scale(1); }
     }
 
     @media (max-width: 768px) {
       .vine {
-        stroke-width: 2;
+        stroke-width: 2.5;
       }
       .leaf {
         transform: scale(0.8);
@@ -106,14 +101,6 @@
         <path class="leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" transform="translate(700,200)" />
       </g>
     </svg>
-  </div>
-
-  <div class="text-center px-4 py-20 relative z-10">
-    <h1 class="text-4xl font-bold mb-2">Welcome to DMC Cleaning Inc.</h1>
-    <p class="mb-6">Professional, reliable, and committed to excellence. Serving your cleaning needs with care and quality.</p>
-    <button onclick="window.location.href='tel:8134241670'" class="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-5 rounded-xl shadow-lg hover:scale-105 transition duration-300">
-      Contact Us
-    </button>
   </div>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
