@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DMC Cleaning Inc. Landing Page</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DMC Cleaning Inc.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
+      overflow-x: hidden;
       background-color: #0b2e13;
       color: #fff;
-      overflow-x: hidden;
       position: relative;
     }
 
@@ -29,26 +26,24 @@
       z-index: 0;
     }
 
-    .vine-svg {
-      width: 100%;
-      height: 100%;
-      opacity: 0.3;
-    }
-
     .vine {
       stroke: #0a3d1a;
       stroke-width: 2.5;
       fill: none;
-      stroke-dasharray: 300;
-      stroke-dashoffset: 300;
-      animation: growVine 4s ease-out forwards, vinePulse 3s ease-in-out 4s infinite alternate;
+      stroke-dasharray: 1200;
+      stroke-dashoffset: 1200;
+      animation: growVine 4s ease-out forwards;
     }
 
     .leaf {
       fill: #1b5e20;
-      opacity: 0;
-      animation: growLeaf 1s ease forwards;
-      animation-delay: 4s;
+      transform-origin: center;
+      animation: growLeaf 0.8s ease-out forwards;
+    }
+
+    .leaf-group {
+      animation-delay: 2.2s;
+      animation-fill-mode: forwards;
     }
 
     @keyframes growVine {
@@ -68,12 +63,18 @@
       }
     }
 
-    @keyframes vinePulse {
-      0% {
+    .vine.heartbeat {
+      animation: growVine 4s ease-out forwards, heartbeat 3s ease-in-out 4s infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
         opacity: 1;
+        transform: scale(1);
       }
-      100% {
-        opacity: 0.4;
+      50% {
+        opacity: 0.85;
+        transform: scale(1.02);
       }
     }
 
@@ -81,63 +82,47 @@
       .vine {
         stroke-width: 2;
       }
-
       .leaf {
-        transform: scale(0.8);
+        transform: scale(0.85);
       }
-    }
-
-    .main-content {
-      position: relative;
-      z-index: 10;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-    }
-
-    .cta-button {
-      padding: 1rem 2rem;
-      background-color: #1b5e20;
-      color: white;
-      font-size: 1.1rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .cta-button:hover {
-      background-color: #145c1f;
     }
   </style>
 </head>
 <body>
   <div class="vine-container">
-    <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="vine-svg">
-      <path class="vine" d="M5,100 C5,75 5,25 5,0"></path>
-      <path class="vine" d="M10,100 C10,75 10,25 10,0"></path>
-      <path class="vine" d="M90,100 C90,75 90,25 90,0"></path>
-      <path class="vine" d="M95,100 C95,75 95,25 95,0"></path>
-      <circle class="leaf" cx="5" cy="90" r="1.5" />
-      <circle class="leaf" cx="10" cy="70" r="1.5" />
-      <circle class="leaf" cx="90" cy="60" r="1.5" />
-      <circle class="leaf" cx="95" cy="80" r="1.5" />
+    <svg viewBox="0 0 800 1000" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <path class="vine" d="M100,1000 Q80,800 100,600 Q120,400 100,200" />
+      <path class="vine" d="M200,1000 Q180,750 200,500 Q220,300 200,100" />
+      <path class="vine" d="M600,1000 Q620,800 600,600 Q580,400 600,200" />
+      <path class="vine" d="M700,1000 Q720,750 700,500 Q680,300 700,100" />
+
+      <g class="leaf-group">
+        <path class="leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" transform="translate(100,800)" />
+        <path class="leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" transform="translate(100,400)" />
+        <path class="leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" transform="translate(200,600)" />
+        <path class="leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" transform="translate(200,200)" />
+      </g>
+
+      <g class="leaf-group">
+        <path class="leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" transform="translate(600,700)" />
+        <path class="leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" transform="translate(600,300)" />
+        <path class="leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" transform="translate(700,600)" />
+        <path class="leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" transform="translate(700,200)" />
+      </g>
     </svg>
   </div>
 
-  <div class="main-content">
-    <h1>Welcome to DMC Cleaning Inc.</h1>
-    <p>Professional, reliable, and committed to excellence. Serving your cleaning needs with care and quality.</p>
-    <button class="cta-button">Contact Us</button>
+  <div class="text-center px-4 py-20 relative z-10">
+    <h1 class="text-4xl font-bold mb-2">Welcome to DMC Cleaning Inc.</h1>
+    <p class="mb-6">Professional, reliable, and committed to excellence. Serving your cleaning needs with care and quality.</p>
+    <button onclick="window.location.href='tel:8134241670'" class="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-5 rounded-xl shadow-lg hover:scale-105 transition duration-300">
+      Contact Us
+    </button>
   </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
 </body>
 </html>
