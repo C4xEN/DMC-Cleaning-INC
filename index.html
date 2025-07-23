@@ -11,7 +11,7 @@
       margin: 0;
       font-family: Arial, sans-serif;
       overflow-x: hidden;
-      background-color: #0b2e13;
+      background-color: #002813;
       color: #fff;
       position: relative;
     }
@@ -32,17 +32,17 @@
       fill: none;
       stroke-dasharray: 1200;
       stroke-dashoffset: 1200;
-      animation: growVine 4s ease-out forwards;
+      animation: growVine 6s ease forwards, pulseVine 2s ease-in-out 6s infinite;
     }
 
     .leaf {
       fill: #1b5e20;
       transform-origin: center;
-      animation: growLeaf 0.8s ease-out forwards;
+      animation: growLeaf 1s ease forwards;
     }
 
     .leaf-group {
-      animation-delay: 2.2s;
+      animation-delay: 3s;
       animation-fill-mode: forwards;
     }
 
@@ -63,18 +63,14 @@
       }
     }
 
-    .vine.heartbeat {
-      animation: growVine 4s ease-out forwards, heartbeat 3s ease-in-out 4s infinite;
-    }
-
-    @keyframes heartbeat {
+    @keyframes pulseVine {
       0%, 100% {
         opacity: 1;
-        transform: scale(1);
+        stroke-width: 2.5;
       }
       50% {
-        opacity: 0.85;
-        transform: scale(1.02);
+        opacity: 0.5;
+        stroke-width: 3.2;
       }
     }
 
@@ -83,7 +79,7 @@
         stroke-width: 2;
       }
       .leaf {
-        transform: scale(0.85);
+        transform: scale(0.8);
       }
     }
   </style>
