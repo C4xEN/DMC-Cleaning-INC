@@ -9,110 +9,170 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #e8f5e9;
+      background: linear-gradient(120deg, #c8d8c8, #b0c4a8);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
       overflow-x: hidden;
-      position: relative;
     }
 
-    svg.vine-bg {
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 1.2s ease-out forwards;
+    }
+
+    .vine-svg {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
+      opacity: 0.1;
       z-index: 0;
-      opacity: 0.2;
       pointer-events: none;
     }
 
-    header, .section, footer, .fixed {
-      position: relative;
-      z-index: 1;
+    .dark-vine path {
+      stroke: #1b5e20;
+      fill: none;
+    }
+
+    .dark-leaf {
+      fill: #2e7d32;
     }
   </style>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body>
-    <svg class="vine-bg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <path id="vinePath1" d="M0,600 Q200,500 400,550 T800,400" fill="none" />
-      <path id="vinePath2" d="M0,550 Q250,400 500,500 T800,350" fill="none" />
-      <g id="leaf">
-        <path d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" fill="#2e7d32" />
+    <div class="vine-svg">
+    <svg viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <path id="vinePath1" d="M0,1000 Q200,800 400,900 T800,700" />
+        <path id="vinePath2" d="M0,1000 Q300,700 600,850 T800,600" />
+        <path id="vinePath3" d="M0,1000 Q150,750 400,800 T800,650" />
+
+        <g id="leaf">
+          <path class="dark-leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" />
+        </g>
+      </defs>
+
+      <g class="dark-vine">
+        <path d="M0,1000 Q200,800 400,900 T800,700">
+          <animate attributeName="stroke-dasharray" values="0,2000;2000,0" dur="6s" fill="freeze" />
+        </path>
+        <path d="M0,1000 Q300,700 600,850 T800,600">
+          <animate attributeName="stroke-dasharray" values="0,2000;2000,0" dur="7s" fill="freeze" />
+        </path>
+        <path d="M0,1000 Q150,750 400,800 T800,650">
+          <animate attributeName="stroke-dasharray" values="0,2000;2000,0" dur="8s" fill="freeze" />
+        </path>
+
+        <use href="#leaf">
+          <animateMotion dur="6s" fill="freeze">
+            <mpath href="#vinePath1" />
+          </animateMotion>
+        </use>
+        <use href="#leaf">
+          <animateMotion dur="7s" fill="freeze">
+            <mpath href="#vinePath2" />
+          </animateMotion>
+        </use>
+        <use href="#leaf">
+          <animateMotion dur="8s" fill="freeze">
+            <mpath href="#vinePath3" />
+          </animateMotion>
+        </use>
       </g>
-    </defs>
+    </svg>
+  </div>
 
-    <path d="M0,600 Q200,500 400,550 T800,400" stroke="#388e3c" stroke-width="2" fill="none">
-      <animate attributeName="stroke-dasharray" from="0,1000" to="1000,0" dur="6s" repeatCount="indefinite" />
-    </path>
-    <path d="M0,550 Q250,400 500,500 T800,350" stroke="#2e7d32" stroke-width="2" fill="none">
-      <animate attributeName="stroke-dasharray" from="0,1000" to="1000,0" dur="7s" repeatCount="indefinite" />
-    </path>
+  <div class="flex justify-center py-6 animate-fade-in relative z-10">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="50" fill="none" viewBox="0 0 24 24" stroke="green" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21 12s-2-4-9-4-9 4-9 4 2 4 9 4 9-4 9-4z" />
+    </svg>
+  </div>
 
-    <use href="#leaf">
-      <animateMotion dur="6s" repeatCount="indefinite">
-        <mpath href="#vinePath1"/>
-      </animateMotion>
-    </use>
-    <use href="#leaf" transform="scale(0.8)">
-      <animateMotion dur="7s" begin="1s" repeatCount="indefinite">
-        <mpath href="#vinePath2"/>
-      </animateMotion>
-    </use>
-    <use href="#leaf" transform="scale(0.6)">
-      <animateMotion dur="8s" begin="2s" repeatCount="indefinite">
-        <mpath href="#vinePath1"/>
-      </animateMotion>
-    </use>
-  </svg>
-
-    <header class="text-center px-4 py-6">
+  <header class="text-center px-4 relative z-10" data-aos="zoom-in">
     <h1 class="text-3xl font-bold mb-2">DMC Cleaning Inc.</h1>
     <p class="mb-4">Professional, Reliable, Affordable Cleaning Services</p>
-    <div class="flex justify-center flex-wrap gap-4">
-      <button onclick="window.location.href='tel:8134241670'" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-5 rounded-xl shadow-lg">📞 Call Now</button>
-      <button onclick="window.location.href='sms:8134241670'" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-5 rounded-xl shadow-lg">💬 Text Us</button>
-      <button onclick="document.getElementById('packages').scrollIntoView({ behavior: 'smooth' })" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-5 rounded-xl shadow-lg">🧼 View Packages</button>
+    <div class="flex justify-center flex-wrap gap-4 mt-4">
+      <button onclick="window.location.href='tel:8134241670'" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-5 rounded-xl shadow-lg hover:scale-105 transition duration-300">📞 Call Now</button>
+      <button onclick="window.location.href='sms:8134241670'" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-5 rounded-xl shadow-lg hover:scale-105 transition duration-300">💬 Text Us</button>
+      <button onclick="document.getElementById('packages').scrollIntoView({ behavior: 'smooth' })" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-5 rounded-xl shadow-lg hover:scale-105 transition duration-300">🧼 View Packages</button>
     </div>
   </header>
 
-    <div class="section text-center mt-10" id="packages">
+  <section class="text-center mt-10 relative z-10" data-aos="fade-up">
+    <h2 class="text-xl font-bold mb-2">About Us</h2>
+    <p class="text-gray-800">We provide top-quality residential cleaning with flat-rate packages and add-ons to meet your needs.</p>
+  </section>
+
+  <section class="text-center" id="packages" data-aos="fade-up">
     <h2 class="text-3xl font-bold mb-6 text-gray-800">Flat-Rate Packages</h2>
-    <div class="flex flex-wrap justify-center gap-8 px-4">
-      <div class="bg-white p-6 rounded-xl shadow-lg w-80">
+    <div class="flex flex-wrap justify-center gap-8 mt-8 px-4">
+      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 w-80">
         <h3 class="text-xl font-semibold mb-2">Standard Refresh</h3>
         <p class="text-green-700 font-bold mb-2">$160 – 4 Hours</p>
-        <ul class="text-sm text-gray-700 list-disc pl-5 text-left">
+        <ul class="text-sm text-gray-700 list-disc pl-5 space-y-1 text-left">
           <li>Kitchen & bathroom wipe-downs</li>
           <li>Dusting, vacuuming, trash removal</li>
         </ul>
       </div>
-      <div class="bg-white p-6 rounded-xl shadow-lg w-80">
+      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 w-80">
         <h3 class="text-xl font-semibold mb-2">Deep Clean</h3>
         <p class="text-green-700 font-bold mb-2">$280 – 7 Hours</p>
-        <ul class="text-sm text-gray-700 list-disc pl-5 text-left">
+        <ul class="text-sm text-gray-700 list-disc pl-5 space-y-1 text-left">
           <li>Includes Standard Refresh</li>
           <li>Appliances, baseboards, blinds</li>
         </ul>
       </div>
-      <div class="bg-white p-6 rounded-xl shadow-lg w-80">
+      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 w-80">
         <h3 class="text-xl font-semibold mb-2">Move In/Out</h3>
         <p class="text-green-700 font-bold mb-2">$320 – 8 Hours</p>
-        <ul class="text-sm text-gray-700 list-disc pl-5 text-left">
+        <ul class="text-sm text-gray-700 list-disc pl-5 space-y-1 text-left">
           <li>Includes Deep Clean</li>
           <li>Cabinets, drawers, final polish</li>
         </ul>
       </div>
     </div>
-  </div>
+  </section>
 
-    <div class="section text-center mt-10">
+  <section class="text-center" data-aos="fade-up">
+    <h2 class="text-2xl font-bold mb-4">Add-On Services</h2>
+    <div class="flex justify-center flex-wrap gap-6 text-lg">
+      <div>🧺 Laundry</div>
+      <div>🍽️ Dishwashing</div>
+      <div>🌿 Light Yard Work</div>
+    </div>
+  </section>
+
+  <section class="text-center" data-aos="fade-in">
     <h2 class="text-xl font-bold mb-2">Get in Touch</h2>
     <p>Call or text us at <strong>(813) 424-1670</strong></p>
     <p>Email: <a href="mailto:dmclark0323@icloud.com" class="text-blue-800">dmclark0323@icloud.com</a></p>
-  </div>
+  </section>
 
-  <footer class="text-center text-sm py-6 bg-gray-100 mt-10">
+  <footer class="text-center text-sm py-6 bg-gray-100">
     &copy; 2025 DMC Cleaning Inc. | Designed by Optima Grata
   </footer>
+
+  <div class="fixed bottom-6 right-6 flex flex-col items-end gap-3 z-50">
+    <a href="tel:8134241670" class="bg-green-600 hover:bg-green-700 text-white p-3 rounded-full shadow-lg w-12 h-12 flex items-center justify-center transition-transform transform hover:scale-110">📞</a>
+    <a href="sms:8134241670" class="bg-green-600 hover:bg-green-700 text-white p-3 rounded-full shadow-lg w-12 h-12 flex items-center justify-center transition-transform transform hover:scale-110">💬</a>
+  </div>
+
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
 </body>
 </html>
