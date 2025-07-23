@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DMC Cleaning Inc.</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <style>
     body {
       margin: 0;
@@ -36,25 +38,33 @@
       left: 0;
       width: 100%;
       height: 100%;
-      opacity: 0.1;
+      opacity: 0.15;
       z-index: 0;
       pointer-events: none;
     }
 
     .dark-vine path {
       stroke: #1b5e20;
+      stroke-width: 3;
       fill: none;
+      stroke-dasharray: 2000;
+      stroke-dashoffset: 2000;
+      animation: drawVine 6s forwards;
+    }
+
+    @keyframes drawVine {
+      to {
+        stroke-dashoffset: 0;
+      }
     }
 
     .dark-leaf {
       fill: #2e7d32;
     }
   </style>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body>
-    <div class="vine-svg">
+  <div class="vine-svg">
     <svg viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <path id="vinePath1" d="M0,1000 Q200,800 400,900 T800,700" />
@@ -67,15 +77,9 @@
       </defs>
 
       <g class="dark-vine">
-        <path d="M0,1000 Q200,800 400,900 T800,700">
-          <animate attributeName="stroke-dasharray" values="0,2000;2000,0" dur="6s" fill="freeze" />
-        </path>
-        <path d="M0,1000 Q300,700 600,850 T800,600">
-          <animate attributeName="stroke-dasharray" values="0,2000;2000,0" dur="7s" fill="freeze" />
-        </path>
-        <path d="M0,1000 Q150,750 400,800 T800,650">
-          <animate attributeName="stroke-dasharray" values="0,2000;2000,0" dur="8s" fill="freeze" />
-        </path>
+        <path d="M0,1000 Q200,800 400,900 T800,700"></path>
+        <path d="M0,1000 Q300,700 600,850 T800,600"></path>
+        <path d="M0,1000 Q150,750 400,800 T800,650"></path>
 
         <use href="#leaf">
           <animateMotion dur="6s" fill="freeze">
@@ -83,12 +87,12 @@
           </animateMotion>
         </use>
         <use href="#leaf">
-          <animateMotion dur="7s" fill="freeze">
+          <animateMotion dur="7s" begin="1s" fill="freeze">
             <mpath href="#vinePath2" />
           </animateMotion>
         </use>
         <use href="#leaf">
-          <animateMotion dur="8s" fill="freeze">
+          <animateMotion dur="8s" begin="2s" fill="freeze">
             <mpath href="#vinePath3" />
           </animateMotion>
         </use>
