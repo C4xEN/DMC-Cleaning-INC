@@ -4,157 +4,230 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DMC Cleaning Inc.</title>
-
-   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      background-color: #eaf3ea;
-      color: #1d3524;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom right, #e9f5ea, #c6dfc8);
+      color: #2d3a2c;
+      overflow-x: hidden;
     }
 
-    .leaf {
-      fill: #a8d5ba;
-      opacity: 0.2;
+    header {
+      text-align: center;
+      padding: 4rem 1rem;
+      background: radial-gradient(circle at top center, #b4e3b2 0%, #d6ecd6 100%);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     }
 
-    .vine {
-      stroke: #7aa37e;
-      stroke-width: 3;
-      fill: none;
-      stroke-dasharray: 1200;
-      stroke-dashoffset: 1200;
-      animation: growVine 3s ease-out forwards;
+    header h1 {
+      font-size: 3rem;
+      color: #155e36;
+      font-weight: 700;
     }
 
-    @keyframes growVine {
-      to {
-        stroke-dashoffset: 0;
+    header p {
+      margin-top: 0.75rem;
+      font-size: 1.25rem;
+      color: #2d3a2c;
+    }
+
+    .buttons {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .buttons a {
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .btn-call { background-color: #22a46d; color: white; }
+    .btn-call:hover { background-color: #1e945f; }
+
+    .btn-text { background-color: white; color: #22a46d; border: 2px solid #22a46d; }
+    .btn-text:hover { background-color: #e6f4eb; }
+
+    .btn-packages { border: 2px solid #155e36; color: #155e36; background: white; }
+    .btn-packages:hover { background-color: #d4ebd3; }
+
+    section {
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #155e36;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      width: 280px;
+      padding: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+      transform: rotate(25deg);
+      transition: opacity 0.4s;
+      opacity: 0;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      color: #155e36;
+      margin-bottom: 0.5rem;
+    }
+
+    .card .price {
+      color: #2d3a2c;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .card ul {
+      list-style-type: none;
+      text-align: left;
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      padding: 2rem;
+      text-align: center;
+      background-color: #155e36;
+      color: white;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      section h2 {
+        font-size: 1.6rem;
       }
     }
   </style>
 </head>
-<body class="overflow-x-hidden">
+<body>
+  <header>
+    <h1>DMC Cleaning Inc.</h1>
+    <p>Professional, Reliable, Affordable Cleaning Services</p>
+    <div class="buttons">
+      <a class="btn-call" href="tel:8134241670">Call Now</a>
+      <a class="btn-text" href="sms:8134241670">Text Us</a>
+      <a class="btn-packages" href="#packages">View Packages</a>
+    </div>
+  </header>
 
-   <div class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none">
-    <svg viewBox="0 0 800 1000" xmlns="http://www.w3.org/2000/svg">
-      <path class="vine" d="M100,1000 Q90,800 100,600 Q120,400 100,200" />
-      <path class="vine" d="M700,1000 Q710,800 700,600 Q680,400 700,200" />
-      <g>
-        <path class="leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" transform="translate(100,800)" />
-        <path class="leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" transform="translate(700,400)" />
-      </g>
-    </svg>
-  </div>
-  <div style="
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.4);
-  z-index: -5;">
-</div>
-
-<header class="flex flex-col items-center justify-center text-center py-20 px-4 bg-[#d9e6d3] relative z-10" data-aos="fade-down">
-  <div class="absolute inset-0 flex justify-center items-center z-0">
-    <div class="w-96 h-96 bg-green-300/30 rounded-full blur-3xl"></div>
-  </div>
-  <h1 class="text-4xl md:text-5xl font-extrabold text-[#155e36] tracking-wide z-10">DMC Cleaning Inc.</h1>
-  <p class="mt-4 text-lg text-[#2d3a2c] z-10">Professional, Reliable, Affordable Cleaning Services</p>
-  <div class="mt-6 flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 z-10">
-    <a href="tel:8134241670" class="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-6 rounded">Call Now</a>
-    <a href="sms:8134241670" class="inline-block bg-white text-green-800 hover:bg-green-200 font-semibold py-2 px-6 rounded">Text Us</a>
-    <a href="#pricing" class="inline-block border border-green-500 text-green-700 hover:bg-green-700 hover:text-white font-semibold py-2 px-6 rounded">View Packages</a>
-  </div>
-</header>
-
-   <section class="py-16 px-6 text-center bg-[#ecf5eb]" data-aos="fade-up">
-    <h2 class="text-3xl font-bold text-[#1e472b] mb-4">About Us</h2>
-    <p class="max-w-2xl mx-auto text-lg text-[#2e4d34]">We specialize in residential cleaning, offering flat-rate packages tailored to your needs. Whether you're moving in, moving out, or just need a deep reset, we’re here to leave your space spotless and stress-free.</p>
+  <section id="about">
+    <h2>About Us</h2>
+    <p>We specialize in residential cleaning, offering flat-rate packages tailored to your needs. Whether you're moving in, moving out, or just need a deep reset, we're here to leave your space spotless and stress-free.</p>
   </section>
 
-    <section id="pricing" class="flex flex-col items-center justify-center text-center py-16 px-4 bg-[#d9e6d3]" data-aos="fade-up">
-  <h2 class="text-3xl font-bold text-[#155e36] mb-8">Packages</h2>
-
-  <div class="flex flex-wrap justify-center gap-6 mt-6">
-
-    <div class="card">
-      <h3 class="text-xl font-semibold text-[#155e36]">Move-In/Out Cleaning</h3>
-      <p class="text-[#2d3a2c] font-medium text-lg my-2">$280 <span class="duration">· 8 Hours</span></p>
-      <ul class="text-sm text-left text-[#2d3a2c] space-y-1">
-        <li>Deep Clean Included</li>
-        <li>Appliances, baseboards, blinds</li>
-        <li>Cabinets, drawers, final polish</li>
-      </ul>
+  <section id="packages">
+    <h2>Packages</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Move-In/Out Cleaning</h3>
+        <p class="price">$280 · 8 Hours</p>
+        <ul>
+          <li>Deep Clean Included</li>
+          <li>Appliances, baseboards, blinds</li>
+          <li>Cabinets, drawers, final polish</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Standard Residential Cleaning</h3>
+        <p class="price">$160 · 4 Hours</p>
+        <ul>
+          <li>General surface cleaning</li>
+          <li>Bathrooms, kitchen, dusting</li>
+          <li>Vacuum, mop, removal</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Deep Cleaning Package</h3>
+        <p class="price">$220 · 6 Hours</p>
+        <ul>
+          <li>All standard cleaning</li>
+          <li>Inside fridge/oven included</li>
+          <li>Wall-spot checks, detailed dusting</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Add-On: Inside Fridge</h3>
+        <p class="price">+ $25</p>
+        <ul>
+          <li>Complete inside cleaning</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Add-On: Oven Deep Clean</h3>
+        <p class="price">+ $30</p>
+        <ul>
+          <li>Degrease, scrub & polish</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Add-On: Laundry (Wash & Fold)</h3>
+        <p class="price">+ $35</p>
+        <ul>
+          <li>Includes 1 full load of laundry</li>
+        </ul>
+      </div>
     </div>
-
-    <div class="card">
-      <h3 class="text-xl font-semibold text-[#155e36]">Standard Residential Cleaning</h3>
-      <p class="text-[#2d3a2c] font-medium text-lg my-2">$160 <span class="duration">· 4 Hours</span></p>
-      <ul class="text-sm text-left text-[#2d3a2c] space-y-1">
-        <li>General surface & floor cleaning</li>
-        <li>Bathrooms, kitchen, dusting</li>
-        <li>Vacuum, mop, trash removal</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3 class="text-xl font-semibold text-[#155e36]">Deep Cleaning Package</h3>
-      <p class="text-[#2d3a2c] font-medium text-lg my-2">$220 <span class="duration">· 6 Hours</span></p>
-      <ul class="text-sm text-left text-[#2d3a2c] space-y-1">
-        <li>All standard cleaning</li>
-        <li>Inside fridge/oven included</li>
-        <li>Wall spot checks, detailed dusting</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3 class="text-xl font-semibold text-[#155e36]">Add-On: Inside Fridge</h3>
-      <p class="text-[#2d3a2c] font-medium text-lg my-2">$25</p>
-      <ul class="text-sm text-left text-[#2d3a2c] space-y-1">
-        <li>Full interior cleaning</li>
-        <li>Sanitized & deodorized</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3 class="text-xl font-semibold text-[#155e36]">Add-On: Inside Oven</h3>
-      <p class="text-[#2d3a2c] font-medium text-lg my-2">$30</p>
-      <ul class="text-sm text-left text-[#2d3a2c] space-y-1">
-        <li>Grease and grime removal</li>
-        <li>Interior scrub and wipe-down</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3 class="text-xl font-semibold text-[#155e36]">Add-On: Laundry (Wash & Fold)</h3>
-      <p class="text-[#2d3a2c] font-medium text-lg my-2">$20 per load</p>
-      <ul class="text-sm text-left text-[#2d3a2c] space-y-1">
-        <li>Sorted, washed, dried</li>
-        <li>Neatly folded and stacked</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-
-    <section class="py-16 bg-[#d9e6d3] text-center" data-aos="fade-up">
-    <h2 class="text-2xl font-bold text-[#1e472b] mb-4">Get in Touch</h2>
-    <p class="mb-2">Call or text: <a href="tel:8134241670" class="text-green-700 font-semibold">(813) 424-1670</a></p>
-    <p>Email: <a href="mailto:dmclark0323@icloud.com" class="text-green-700 font-semibold">dmclark0323@icloud.com</a></p>
   </section>
 
-    <footer class="text-center text-sm bg-[#c7d5c4] py-4 text-[#1e472b]">
-    © 2025 DMC Cleaning Inc. | Built by Optima Grata
+  <footer>
+    <p>Call or text us at <a href="tel:8134241670">(813) 424-1670</a> | Email: <a href="mailto:dmclark0323@icloud.com">dmclark0323@icloud.com</a></p>
+    <p>&copy; 2025 DMC Cleaning Inc. | Designed by Optima Grata</p>
   </footer>
-
-    <script>
-    AOS.init({ duration: 800, once: true });
-  </script>
 </body>
 </html>
