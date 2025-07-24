@@ -4,230 +4,135 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DMC Cleaning Inc.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to bottom right, #e9f5ea, #c6dfc8);
-      color: #2d3a2c;
-      overflow-x: hidden;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom, #eaf4ec, #d9e6d3);
     }
-
-    header {
-      text-align: center;
-      padding: 4rem 1rem;
-      background: radial-gradient(circle at top center, #b4e3b2 0%, #d6ecd6 100%);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    }
-
-    header h1 {
-      font-size: 3rem;
-      color: #155e36;
-      font-weight: 700;
-    }
-
-    header p {
-      margin-top: 0.75rem;
-      font-size: 1.25rem;
-      color: #2d3a2c;
-    }
-
-    .buttons {
-      margin-top: 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-    }
-
-    .buttons a {
-      padding: 0.75rem 1.5rem;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-
-    .btn-call { background-color: #22a46d; color: white; }
-    .btn-call:hover { background-color: #1e945f; }
-
-    .btn-text { background-color: white; color: #22a46d; border: 2px solid #22a46d; }
-    .btn-text:hover { background-color: #e6f4eb; }
-
-    .btn-packages { border: 2px solid #155e36; color: #155e36; background: white; }
-    .btn-packages:hover { background-color: #d4ebd3; }
-
-    section {
-      padding: 4rem 1rem;
-      text-align: center;
-    }
-
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: #155e36;
-    }
-
-    .card-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .card {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-      width: 280px;
-      padding: 1.5rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
-      transform: rotate(25deg);
-      transition: opacity 0.4s;
-      opacity: 0;
-    }
-
-    .card:hover::before {
-      opacity: 1;
-    }
-
     .card:hover {
       transform: scale(1.03);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
-
-    .card h3 {
-      font-size: 1.25rem;
-      color: #155e36;
-      margin-bottom: 0.5rem;
+    .animate-fadeIn {
+      animation: fadeIn 0.3s ease-in-out forwards;
     }
-
-    .card .price {
-      color: #2d3a2c;
-      font-weight: bold;
-      margin-bottom: 1rem;
-    }
-
-    .card ul {
-      list-style-type: none;
-      text-align: left;
-      color: #555;
-      font-size: 0.95rem;
-    }
-
-    footer {
-      padding: 2rem;
-      text-align: center;
-      background-color: #155e36;
-      color: white;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2.2rem;
-      }
-      section h2 {
-        font-size: 1.6rem;
-      }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
-<body>
-  <header>
-    <h1>DMC Cleaning Inc.</h1>
-    <p>Professional, Reliable, Affordable Cleaning Services</p>
-    <div class="buttons">
-      <a class="btn-call" href="tel:8134241670">Call Now</a>
-      <a class="btn-text" href="sms:8134241670">Text Us</a>
-      <a class="btn-packages" href="#packages">View Packages</a>
+
+<body class="text-[#2d3a2c] overflow-x-hidden">
+
+  <header class="text-center py-16 px-4 bg-gradient-to-b from-green-200 to-green-100 shadow-md relative z-10">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-green-900 mb-2">DMC Cleaning Inc.</h1>
+    <p class="text-lg text-green-800 mb-6">Professional, Reliable, Affordable Cleaning Services</p>
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+      <a href="tel:8134241670" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded shadow">Call Now</a>
+      <a href="sms:8134241670" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded shadow">Text Us</a>
+      <button onclick="toggleModal()" class="bg-white text-green-800 hover:bg-green-100 font-semibold py-2 px-6 rounded shadow">View Packages</button>
     </div>
   </header>
 
-  <section id="about">
-    <h2>About Us</h2>
-    <p>We specialize in residential cleaning, offering flat-rate packages tailored to your needs. Whether you're moving in, moving out, or just need a deep reset, we're here to leave your space spotless and stress-free.</p>
+  <section class="text-center py-10 px-6 max-w-4xl mx-auto">
+    <h2 class="text-3xl font-bold text-green-800 mb-4">About Us</h2>
+    <p class="text-base md:text-lg leading-relaxed">We specialize in residential cleaning, offering flat-rate packages tailored to your needs. Whether you're moving in, moving out, or just need a deep reset, we’re here to leave your space spotless and stress-free.</p>
   </section>
 
-  <section id="packages">
-    <h2>Packages</h2>
-    <div class="card-container">
-      <div class="card">
-        <h3>Move-In/Out Cleaning</h3>
-        <p class="price">$280 · 8 Hours</p>
-        <ul>
-          <li>Deep Clean Included</li>
-          <li>Appliances, baseboards, blinds</li>
-          <li>Cabinets, drawers, final polish</li>
-        </ul>
+  <section id="pricing" class="text-center py-10 px-4 bg-[#e4efe1]">
+    <h2 class="text-3xl font-bold text-green-800 mb-8">Packages</h2>
+    <div class="flex flex-wrap justify-center gap-6">
+      <!-- Move-In/Out -->
+      <div class="card bg-white rounded-lg p-6 w-64 shadow transition-transform duration-300">
+        <h3 class="text-lg font-bold text-green-800 mb-2">Move-In/Out Cleaning</h3>
+        <p class="text-gray-800 font-semibold">$280 · 8 Hours</p>
       </div>
-      <div class="card">
-        <h3>Standard Residential Cleaning</h3>
-        <p class="price">$160 · 4 Hours</p>
-        <ul>
-          <li>General surface cleaning</li>
-          <li>Bathrooms, kitchen, dusting</li>
-          <li>Vacuum, mop, removal</li>
-        </ul>
+
+      <div class="card bg-white rounded-lg p-6 w-64 shadow transition-transform duration-300">
+        <h3 class="text-lg font-bold text-green-800 mb-2">Standard Residential</h3>
+        <p class="text-gray-800 font-semibold">$160 · 4 Hours</p>
       </div>
-      <div class="card">
-        <h3>Deep Cleaning Package</h3>
-        <p class="price">$220 · 6 Hours</p>
-        <ul>
-          <li>All standard cleaning</li>
-          <li>Inside fridge/oven included</li>
-          <li>Wall-spot checks, detailed dusting</li>
-        </ul>
+
+      <div class="card bg-white rounded-lg p-6 w-64 shadow transition-transform duration-300">
+        <h3 class="text-lg font-bold text-green-800 mb-2">Deep Cleaning Package</h3>
+        <p class="text-gray-800 font-semibold">$220 · 6 Hours</p>
       </div>
-      <div class="card">
-        <h3>Add-On: Inside Fridge</h3>
-        <p class="price">+ $25</p>
-        <ul>
-          <li>Complete inside cleaning</li>
-        </ul>
+
+      <div class="card bg-white rounded-lg p-6 w-64 shadow transition-transform duration-300">
+        <h3 class="text-lg font-bold text-green-800 mb-2">Add-On: Inside Fridge</h3>
+        <p class="text-gray-800 font-semibold">+ $25</p>
       </div>
-      <div class="card">
-        <h3>Add-On: Oven Deep Clean</h3>
-        <p class="price">+ $30</p>
-        <ul>
-          <li>Degrease, scrub & polish</li>
-        </ul>
+
+      <div class="card bg-white rounded-lg p-6 w-64 shadow transition-transform duration-300">
+        <h3 class="text-lg font-bold text-green-800 mb-2">Add-On: Oven Deep Clean</h3>
+        <p class="text-gray-800 font-semibold">+ $30</p>
       </div>
-      <div class="card">
-        <h3>Add-On: Laundry (Wash & Fold)</h3>
-        <p class="price">+ $35</p>
-        <ul>
-          <li>Includes 1 full load of laundry</li>
-        </ul>
+
+      <div class="card bg-white rounded-lg p-6 w-64 shadow transition-transform duration-300">
+        <h3 class="text-lg font-bold text-green-800 mb-2">Add-On: Laundry (Wash & Fold)</h3>
+        <p class="text-gray-800 font-semibold">+ $35</p>
       </div>
     </div>
   </section>
 
-  <footer>
-    <p>Call or text us at <a href="tel:8134241670">(813) 424-1670</a> | Email: <a href="mailto:dmclark0323@icloud.com">dmclark0323@icloud.com</a></p>
-    <p>&copy; 2025 DMC Cleaning Inc. | Designed by Optima Grata</p>
+  <footer class="bg-green-900 text-white text-center py-6 text-sm">
+    <p>
+      Call or text us at <a href="tel:8134241670" class="underline">(813) 424-1670</a> |
+      Email: <a href="mailto:dmclark0323@icloud.com" class="underline">dmclark0323@icloud.com</a>
+    </p>
+    <p class="mt-2">&copy; 2025 DMC Cleaning Inc. | Designed by Optima Grata</p>
   </footer>
+
+  <div id="packageModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-lg shadow-xl max-w-lg w-full p-6 relative animate-fadeIn">
+      <button onclick="toggleModal()" class="absolute top-2 right-3 text-xl text-gray-600 hover:text-black">&times;</button>
+      <h2 class="text-2xl font-bold text-green-800 mb-4 text-center">Full Package Details</h2>
+      <div class="space-y-4 text-gray-700 text-sm">
+        <div>
+          <h3 class="font-semibold text-green-700">Move-In/Out Cleaning – $280 (8 Hours)</h3>
+          <ul class="list-disc list-inside ml-4">
+            <li>Deep Clean Included</li>
+            <li>Appliances, baseboards, blinds</li>
+            <li>Cabinets, drawers, final polish</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold text-green-700">Standard Residential – $160 (4 Hours)</h3>
+          <ul class="list-disc list-inside ml-4">
+            <li>General surface cleaning</li>
+            <li>Bathrooms, kitchen, dusting</li>
+            <li>Vacuum, mop, removal</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold text-green-700">Deep Cleaning – $220 (6 Hours)</h3>
+          <ul class="list-disc list-inside ml-4">
+            <li>All standard cleaning</li>
+            <li>Inside fridge/oven included</li>
+            <li>Wall-spot checks, detailed dusting</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold text-green-700">Add-Ons:</h3>
+          <ul class="list-disc list-inside ml-4">
+            <li>Inside Fridge – $25</li>
+            <li>Oven Deep Clean – $30</li>
+            <li>Laundry (Wash & Fold) – $35</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleModal() {
+      const modal = document.getElementById('packageModal');
+      modal.classList.toggle('hidden');
+    }
+  </script>
+
 </body>
 </html>
