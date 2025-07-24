@@ -1,111 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DMC Cleaning Inc.</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      overflow-x: hidden;
-      background-color: #0a1f14;
-      color: #fff;
-      position: relative;
-    }
-
-    .vine-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .vine {
-      stroke: #0a3d1a;
-      stroke-width: 4;
-      fill: none;
-      stroke-dasharray: 1400;
-      stroke-dashoffset: 1400;
-      animation: growVine 4s ease forwards, pulse 3s ease-in-out infinite 4s;
-    }
-
-    .leaf {
-      fill: #1b5e20;
-      transform-origin: center;
-      animation: growLeaf 0.8s ease forwards;
-    }
-
-    .leaf-group {
-      animation-delay: 2s;
-      animation-fill-mode: forwards;
-    }
-
-    @keyframes growVine {
-      to {
-        stroke-dashoffset: 0;
-      }
-    }
-
-    @keyframes growLeaf {
-      0% {
-        transform: scale(0);
-        opacity: 0;
-      }
-      100% {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
-
-    @keyframes pulse {
-      0% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.7; transform: scale(1.01); }
-      100% { opacity: 1; transform: scale(1); }
-    }
-
-    @media (max-width: 768px) {
-      .vine {
-        stroke-width: 2.5;
-      }
-      .leaf {
-        transform: scale(0.8);
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="vine-container">
-    <svg viewBox="0 0 800 1000" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-      <path class="vine" d="M100,1000 Q80,800 100,600 Q120,400 100,200" />
-      <path class="vine" d="M200,1000 Q180,750 200,500 Q220,300 200,100" />
-      <path class="vine" d="M600,1000 Q620,800 600,600 Q580,400 600,200" />
-      <path class="vine" d="M700,1000 Q720,750 700,500 Q680,300 700,100" />
-
-      <g class="leaf-group">
-        <path class="leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" transform="translate(100,800)" />
-        <path class="leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" transform="translate(100,400)" />
-        <path class="leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" transform="translate(200,600)" />
-        <path class="leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" transform="translate(200,200)" />
-      </g>
-
-      <g class="leaf-group">
-        <path class="leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" transform="translate(600,700)" />
-        <path class="leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" transform="translate(600,300)" />
-        <path class="leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" transform="translate(700,600)" />
-        <path class="leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" transform="translate(700,200)" />
-      </g>
-    </svg>
-  </div>
-
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 800, once: true });
-  </script>
-</body>
-</html>
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/index.html b/index.html
+index 95370f0a4532dbbad7315c10f962e805d6c01ff2..e1d2a61cd2581dbb45ddd914b27a20151074b3fc 100644
+--- a/index.html
++++ b/index.html
+@@ -1,33 +1,34 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>DMC Cleaning Inc.</title>
+   <script src="https://cdn.tailwindcss.com"></script>
+   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
++  <link rel="stylesheet" href="style.css" />
+   <style>
+     body {
+       margin: 0;
+       font-family: Arial, sans-serif;
+       overflow-x: hidden;
+       background-color: #0a1f14;
+       color: #fff;
+       position: relative;
+     }
+ 
+     .vine-container {
+       position: fixed;
+       top: 0;
+       left: 0;
+       width: 100vw;
+       height: 100vh;
+       pointer-events: none;
+       z-index: 0;
+     }
+ 
+     .vine {
+       stroke: #0a3d1a;
+       stroke-width: 4;
+       fill: none;
+       stroke-dasharray: 1400;
+diff --git a/index.html b/index.html
+index 95370f0a4532dbbad7315c10f962e805d6c01ff2..e1d2a61cd2581dbb45ddd914b27a20151074b3fc 100644
+--- a/index.html
++++ b/index.html
+@@ -81,31 +82,92 @@
+ </head>
+ <body>
+   <div class="vine-container">
+     <svg viewBox="0 0 800 1000" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+       <path class="vine" d="M100,1000 Q80,800 100,600 Q120,400 100,200" />
+       <path class="vine" d="M200,1000 Q180,750 200,500 Q220,300 200,100" />
+       <path class="vine" d="M600,1000 Q620,800 600,600 Q580,400 600,200" />
+       <path class="vine" d="M700,1000 Q720,750 700,500 Q680,300 700,100" />
+ 
+       <g class="leaf-group">
+         <path class="leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" transform="translate(100,800)" />
+         <path class="leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" transform="translate(100,400)" />
+         <path class="leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" transform="translate(200,600)" />
+         <path class="leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" transform="translate(200,200)" />
+       </g>
+ 
+       <g class="leaf-group">
+         <path class="leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" transform="translate(600,700)" />
+         <path class="leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" transform="translate(600,300)" />
+         <path class="leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" transform="translate(700,600)" />
+         <path class="leaf" d="M0,0 C2,-4 6,-4 8,0 C6,4 2,4 0,0 Z" transform="translate(700,200)" />
+       </g>
+     </svg>
+   </div>
+ 
++  <header class="relative z-10 text-center px-4 py-24 md:py-32" data-aos="fade-up">
++    <h1 class="text-4xl sm:text-5xl font-bold mb-4">DMC Cleaning Inc.</h1>
++    <p class="max-w-2xl mx-auto mb-8 text-lg text-gray-200">
++      Professional, reliable, and committed to excellence. Serving your cleaning needs with care and quality.
++    </p>
++    <div class="flex flex-wrap justify-center gap-4">
++      <button onclick="window.location.href='tel:8134241670'" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-5 rounded-xl shadow-lg transition-transform hover:scale-105">📞 Call Now</button>
++      <button onclick="window.location.href='sms:8134241670'" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-5 rounded-xl shadow-lg transition-transform hover:scale-105">💬 Text Us</button>
++    </div>
++  </header>
++
++  <section id="about" class="relative z-10 text-center py-16 px-4 bg-black/20" data-aos="fade-up">
++    <div class="max-w-3xl mx-auto">
++      <h2 class="text-2xl font-bold mb-4">About Us</h2>
++      <p class="text-gray-200">We provide top-quality residential cleaning with flat-rate packages and add-ons to meet your needs.</p>
++    </div>
++  </section>
++
++  <section id="pricing" class="relative z-10 py-16 px-4" data-aos="fade-up">
++    <h2 class="text-3xl font-bold text-center mb-8">Flat-Rate Packages</h2>
++    <div class="cards">
++      <div class="card">
++        <div class="dirt-overlay"></div>
++        <h3 class="text-xl font-semibold mb-1">Standard Refresh</h3>
++        <p class="text-green-700 font-bold mb-2">$160 – 4 Hours</p>
++        <ul class="text-sm space-y-1">
++          <li>Kitchen &amp; bathroom wipe-downs</li>
++          <li>Dusting, vacuuming, trash removal</li>
++        </ul>
++      </div>
++      <div class="card">
++        <div class="dirt-overlay"></div>
++        <h3 class="text-xl font-semibold mb-1">Deep Clean</h3>
++        <p class="text-green-700 font-bold mb-2">$280 – 7 Hours</p>
++        <ul class="text-sm space-y-1">
++          <li>Includes Standard Refresh</li>
++          <li>Appliances, baseboards, blinds</li>
++        </ul>
++      </div>
++      <div class="card">
++        <div class="dirt-overlay"></div>
++        <h3 class="text-xl font-semibold mb-1">Move In/Out</h3>
++        <p class="text-green-700 font-bold mb-2">$320 – 8 Hours</p>
++        <ul class="text-sm space-y-1">
++          <li>Includes Deep Clean</li>
++          <li>Cabinets, drawers, final polish</li>
++        </ul>
++      </div>
++    </div>
++  </section>
++
++  <section id="contact" class="relative z-10 text-center py-16 px-4 bg-black/20" data-aos="fade-up">
++    <h2 class="text-2xl font-bold mb-4">Get in Touch</h2>
++    <p>Call or text us at <strong>(813) 424-1670</strong></p>
++    <p>Email: <a href="mailto:dmclark0323@icloud.com" class="underline">dmclark0323@icloud.com</a></p>
++  </section>
++
++  <footer class="relative z-10 text-center text-sm py-6 bg-black/30">
++    &copy; 2025 DMC Cleaning Inc. | Designed by Optima Grata
++  </footer>
++
+   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+   <script>
+     AOS.init({ duration: 800, once: true });
+   </script>
+ </body>
+ </html>
+ 
+EOF
+)
